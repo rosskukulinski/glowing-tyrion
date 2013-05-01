@@ -1,0 +1,17 @@
+extends layout
+
+block append scripts
+    script(src='/javascripts/libs/require-jquery.js', data-main='javascripts/main')
+
+block content
+    div#wrapper
+        div.container-fluid
+            div.row-fluid
+                h1 Node.js starter kit
+                p.subtitle
+                    span Have fun with this code! 
+                p.subtitle 
+                    span Check out the 
+                    a(href='http://github.com/romainpiel/nodejsstarterkit') Github repo
+                    span .
+            div#main
