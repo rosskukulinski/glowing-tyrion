@@ -35,6 +35,11 @@ VCS Monitoring
  - [repoman (git+svn)](https://github.com/cliffano/repoman)
  - [nodesvn](https://github.com/enmand/nodesvn)
 
+ ### Hooks
+
+ - SVN: http://stackoverflow.com/questions/2004981/how-to-set-a-trigger-to-prevent-commits-to-svn-with-mergeinfo-property
+ - GIT: http://git-scm.com/book/en/Customizing-Git-Git-Hooks
+
 RSS Feed
 --------
  - [node-rss](https://github.com/dylang/node-rss)
