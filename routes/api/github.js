@@ -5,6 +5,9 @@ var PresModels = {
 }
 
 var countCommitsByUserInRepo = function(req, res){
+
+	console.log("I AM HERE");
+
 	var stats = new GithubStats(req.params.user_id, req.params.repo);
 	stats.commits(function(err, data){
 		//GITHUB ERROR
@@ -45,10 +48,10 @@ var toPresModel = function(req, res, data, collection){
 			
 			var output = {
 				graph: {
-					title: "graph title",
+					title: req.params.repo,
 					datasequences: [
 						{
-							title: "sequence title",
+							title: req.params.user_id,
 							datapoints:[
 
 							]
