@@ -7,10 +7,10 @@
   },
   "dependencies": {
     "express": "3.0.1",
-    "jade": "*",
     "less-middleware": "*",
     "nconf": "*",
-    "github": "~0.1.8"
+    "github": "~0.1.8",
+    "ejs": "*"
   },
   "engines": {
     "node": "0.8.x",
