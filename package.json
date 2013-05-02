@@ -10,7 +10,8 @@
     "less-middleware": "*",
     "nconf": "*",
     "github": "~0.1.8",
-    "ejs": "*"
+    "ejs": "*",
+    "jade": "~0.30.0"
   },
   "engines": {
     "node": "0.8.x",
