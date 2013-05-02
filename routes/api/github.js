@@ -1,7 +1,8 @@
 var GithubStats = require('../../lib/github');
 
 var PresModels = {
-	statusboard: require('../../lib/presModels/statusboard')
+	statusboard: require('../../lib/presModels/statusboard'),
+	json: require('../../lib/presModels/statusboard')
 }
 
 var countCommitsByUserInRepo = function(req, res){
