@@ -9,10 +9,11 @@
     "express": "3.0.1",
     "jade": "*",
     "less-middleware": "*",
-    "nconf": "*"
+    "nconf": "*",
+    "github": "~0.1.8"
   },
   "engines": {
     "node": "0.8.x",
-    "npm":  "1.1.x"
+    "npm": "1.1.x"
   }
 }
