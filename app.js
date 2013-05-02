@@ -2,6 +2,7 @@
 /**
  * Module dependencies.
  */
+
 var express = require('express')
   , util = require('util')
   , nconf = require('nconf')
@@ -13,8 +14,10 @@ var express = require('express')
 nconf.argv().env().file({ file: 'local.json' });
 
 require('./routes')(app);
+require('./routes/api/github')(app);
 
 var port = process.env.PORT || nconf.get('port');
 server.listen(port);
 
-util.log("Listening port "+port)
+util.log("Listening port "+port);
+
