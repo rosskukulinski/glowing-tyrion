@@ -5,9 +5,6 @@ Project Overview
 ----------------
 Idea to grab data from VCS (Git, SVN) and display stats? commits? in Panic's Status Board or other monitoring software
 
-
-
-
 StatusBoard Information
 -----------------------
  - [Status Board Homepage](http://panic.com/statusboard/)
@@ -51,3 +48,12 @@ RSS Feed
 	
 
  - [RSS+Express+Backbone](http://tbranyen.com/post/generating-rss-feeds-from-a-backbonejs-collection-in-nodejs)
+
+ # TODO
+
+1. Create StandardModel
+  * Transforms github/bitbucket data into a common model.
+  * Take code from presmodel.statusboard.
+1. Move graphing model to the statusboard presmodel.
+1. Change endpoint to include the view
+  * Currently we have source/org/repo we need to have source/org/repo/view
