@@ -3,11 +3,9 @@ var GithubStats = require('../../lib/github');
 var PresModels = {
 	statusboard: require('../../lib/presModels/statusboard'),
 	json: require('../../lib/presModels/statusboard')
-}
+};
 
 var countCommitsByUserInRepo = function(req, res){
-
-	console.log("I AM HERE");
 
 	var stats = new GithubStats(req.params.user_id, req.params.repo);
 	stats.commits(function(err, data){
@@ -19,34 +17,34 @@ var countCommitsByUserInRepo = function(req, res){
 			toPresModel(req, res, data, "commitCount");
 		}
 	});
-}
+};
 
 var githubError = function(res, err){
 	var data = {
 		msg: "GITHUB ERROR",
 		err: err
-	}
+	};
 	res.json(500, data);
-}
+};
 
 var toPresModel = function(req, res, data, collection){
 	//TRANSFORM THIS INTO THE WISHED FOR PRES MODEL
-	
+
 	var type = req.query.type;
 
 	var presModel = PresModels[type];
 
-	if(presModel==undefined){
-		var data = {
+	if(presModel===undefined){
+		var response = {
 			msg: "TYPE "+type+" IS NOT VALID",
 			err: undefined
-		}
-		res.json(500, data);
+		};
+		res.json(500, response);
 	}
 	else{
 		//transform data into the right collection of this pres model
 		presModel[collection](data, function(err, result){
-			
+
 			var output = {
 				graph: {
 					title: req.params.repo,
@@ -59,21 +57,21 @@ var toPresModel = function(req, res, data, collection){
 						}
 					]
 				}
-			}
+			};
 
-			var users = Object.keys(result);
-			for(var i=0; i<users.length; i++){
-				output.graph.datasequences[0].datapoints[i] = {title:users[i], value:result[users[i]].numCommits};
+			for(var i=0; i<result.length; i++){
+        var user = result[i];
+				output.graph.datasequences[0].datapoints[i] = {title:user.user, value:user.numCommits};
 			}
 
 			res.json(output);
 
 		});
 	}
-}
+};
 
 
 //ROUTES
 module.exports = function(app){
 	app.get('/github/:user_id/:repo', countCommitsByUserInRepo);
-}
+};
