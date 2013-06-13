@@ -8,12 +8,15 @@ var PresModels = {
 var countCommitsByUserInRepo = function(req, res){
   var apiKey = req.query.apiKey;
 	var stats = new GithubStats(req.params.user_id, req.params.repo, apiKey);
+  console.log('Request: user: '+req.params.user_id +', repo: '+req.params.repo+', apiKey: '+apiKey);
 	stats.commits(function(err, data){
 		//GITHUB ERROR
 		if(err){
 			githubError(res, err);
 		}
 		else{
+      console.log('x-ratelimit-limit: '+data.meta['x-ratelimit-limit']);
+      console.log('x-ratelimit-remaining: '+data.meta['x-ratelimit-remaining']);
 			toPresModel(req, res, data, "commitCount");
 		}
 	});
