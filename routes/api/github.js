@@ -6,8 +6,8 @@ var PresModels = {
 };
 
 var countCommitsByUserInRepo = function(req, res){
-
-	var stats = new GithubStats(req.params.user_id, req.params.repo);
+  var apiKey = req.query.apiKey;
+	var stats = new GithubStats(req.params.user_id, req.params.repo, apiKey);
 	stats.commits(function(err, data){
 		//GITHUB ERROR
 		if(err){
